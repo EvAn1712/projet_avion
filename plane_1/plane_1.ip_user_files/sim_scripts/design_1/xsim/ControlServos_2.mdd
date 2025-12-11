@@ -1,0 +1,10 @@
+
+
+OPTION psf_version = 2.1;
+
+BEGIN DRIVER ControlServos_2
+	OPTION supported_peripherals = (ControlServos_2);
+	OPTION copyfiles = all;
+	OPTION VERSION = 1.0;
+	OPTION NAME = ControlServos_2;
+END DRIVER

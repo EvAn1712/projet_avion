@@ -1,0 +1,46 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2024.2 (lin64) Build 5239630 Fri Nov 08 22:34:34 MST 2024
+| Date         : Fri Dec 19 18:13:36 2025
+| Host         : pcb07-061-03 running 64-bit unknown
+| Command      : report_drc -file design_1_wrapper_drc_routed.rpt -pb design_1_wrapper_drc_routed.pb -rpx design_1_wrapper_drc_routed.rpx
+| Design       : design_1_wrapper
+| Device       : xc7z010clg400-1
+| Speed File   : -1
+| Design State : Fully Routed
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Report DRC
+
+Table of Contents
+-----------------
+1. REPORT SUMMARY
+2. REPORT DETAILS
+
+1. REPORT SUMMARY
+-----------------
+            Netlist: netlist
+          Floorplan: design_1
+      Design limits: <entire design considered>
+           Ruledeck: default
+             Max checks: <unlimited>
+             Checks found: 2
++----------+----------+-------------------+--------+
+| Rule     | Severity | Description       | Checks |
++----------+----------+-------------------+--------+
+| PDRC-153 | Warning  | Gated clock check | 2      |
++----------+----------+-------------------+--------+
+
+2. REPORT DETAILS
+-----------------
+PDRC-153#1 Warning
+Gated clock check  
+Net design_1_i/control_servos_0/U0/control_servos_slave_lite_v3_0_S00_AXI_inst/servo_0_reg_i_2_n_0 is a gated clock net sourced by a combinational pin design_1_i/control_servos_0/U0/control_servos_slave_lite_v3_0_S00_AXI_inst/servo_0_reg_i_2/O, cell design_1_i/control_servos_0/U0/control_servos_slave_lite_v3_0_S00_AXI_inst/servo_0_reg_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#2 Warning
+Gated clock check  
+Net design_1_i/control_servos_0/U0/control_servos_slave_lite_v3_0_S00_AXI_inst/servo_1_reg_i_2_n_0 is a gated clock net sourced by a combinational pin design_1_i/control_servos_0/U0/control_servos_slave_lite_v3_0_S00_AXI_inst/servo_1_reg_i_2/O, cell design_1_i/control_servos_0/U0/control_servos_slave_lite_v3_0_S00_AXI_inst/servo_1_reg_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+

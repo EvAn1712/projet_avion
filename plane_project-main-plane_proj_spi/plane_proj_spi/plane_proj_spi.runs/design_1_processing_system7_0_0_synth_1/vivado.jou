@@ -1,0 +1,24 @@
+#-----------------------------------------------------------
+# Vivado v2024.2 (64-bit)
+# SW Build 5239630 on Fri Nov 08 22:34:34 MST 2024
+# IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
+# SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
+# Start of session at: Thu Dec 11 15:32:06 2025
+# Process ID         : 22059
+# Current directory  : /home/master26/ems26/p.penet/Desktop/plane_proj_spi/plane_proj_spi.runs/design_1_processing_system7_0_0_synth_1
+# Command line       : vivado -log design_1_processing_system7_0_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source design_1_processing_system7_0_0.tcl
+# Log file           : /home/master26/ems26/p.penet/Desktop/plane_proj_spi/plane_proj_spi.runs/design_1_processing_system7_0_0_synth_1/design_1_processing_system7_0_0.vds
+# Journal file       : /home/master26/ems26/p.penet/Desktop/plane_proj_spi/plane_proj_spi.runs/design_1_processing_system7_0_0_synth_1/vivado.jou
+# Running On         : pcb07-062-06
+# Platform           : unknown
+# Operating System   : unknown
+# Processor Detail   : Intel(R) Core(TM) i7-9700 CPU @ 3.00GHz
+# CPU Frequency      : 4499.764 MHz
+# CPU Physical cores : 8
+# CPU Logical cores  : 8
+# Host memory        : 33204 MB
+# Swap memory        : 16806 MB
+# Total Virtual      : 50011 MB
+# Available Virtual  : 45634 MB
+#-----------------------------------------------------------
+source design_1_processing_system7_0_0.tcl -notrace

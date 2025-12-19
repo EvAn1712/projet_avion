@@ -1,0 +1,5 @@
+set_property SRC_FILE_INFO {cfile:/home/master26/ems26/e.chinnaya/Documents/plane_project-main-plane_proj_spi/plane_proj_spi/plane.xdc rfile:../../../plane.xdc id:1} [current_design]
+set_property src_info {type:XDC file:1 line:1 export:INPUT save:INPUT read:READ} [current_design]
+set_property PACKAGE_PIN T14 [get_ports servo_0_0]
+set_property src_info {type:XDC file:1 line:4 export:INPUT save:INPUT read:READ} [current_design]
+set_property PACKAGE_PIN T15 [get_ports servo_1_0]

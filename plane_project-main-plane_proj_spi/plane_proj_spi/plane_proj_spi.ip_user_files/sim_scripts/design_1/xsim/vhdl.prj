@@ -1,0 +1,10 @@
+vhdl xil_defaultlib  \
+"../../../bd/design_1/ipshared/0d8a/hdl/control_servos_slave_lite_v3_0_S00_AXI.vhd" \
+"../../../bd/design_1/ipshared/0d8a/hdl/control_servos.vhd" \
+"../../../bd/design_1/ip/design_1_control_servos_0_3/sim/design_1_control_servos_0_3.vhd" \
+"../../../bd/design_1/ip/design_1_axi_smc_3/bd_0/ip/ip_1/sim/bd_ae83_psr_aclk_0.vhd" \
+"../../../bd/design_1/ip/design_1_rst_ps7_0_50M_3/sim/design_1_rst_ps7_0_50M_3.vhd" \
+"../../../bd/design_1/sim/design_1.vhd" \
+
+# Do not sort compile order
+nosort

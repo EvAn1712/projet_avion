@@ -2,8 +2,8 @@
 // Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2024.2 (lin64) Build 5239630 Fri Nov 08 22:34:34 MST 2024
-// Date        : Tue Dec  9 18:13:32 2025
-// Host        : pcb07-061-12 running 64-bit unknown
+// Date        : Fri Dec 19 17:41:01 2025
+// Host        : pcb07-061-03 running 64-bit unknown
 // Command     : write_verilog -force -mode funcsim
 //               /home/master26/ems26/e.chinnaya/Documents/plane_1/plane_1.gen/sources_1/bd/design_1/ip/design_1_ControlServos_2_0_0/design_1_ControlServos_2_0_0_sim_netlist.v
 // Design      : design_1_ControlServos_2_0_0
@@ -41,9 +41,9 @@ module design_1_ControlServos_2_0_0
     s00_axi_rready);
   output servo_0;
   output servo_1;
-  (* x_interface_info = "xilinx.com:signal:clock:1.0 S00_AXI_CLK CLK" *) (* x_interface_mode = "slave S00_AXI_CLK" *) (* x_interface_parameter = "XIL_INTERFACENAME S00_AXI_CLK, ASSOCIATED_BUSIF S00_AXI, ASSOCIATED_RESET s00_axi_aresetn, FREQ_HZ 50000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN design_1_processing_system7_0_0_FCLK_CLK0, INSERT_VIP 0" *) input s00_axi_aclk;
+  (* x_interface_info = "xilinx.com:signal:clock:1.0 S00_AXI_CLK CLK" *) (* x_interface_mode = "slave S00_AXI_CLK" *) (* x_interface_parameter = "XIL_INTERFACENAME S00_AXI_CLK, ASSOCIATED_BUSIF S00_AXI, ASSOCIATED_RESET s00_axi_aresetn, FREQ_HZ 5e+07, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN design_1_processing_system7_0_0_FCLK_CLK0, INSERT_VIP 0" *) input s00_axi_aclk;
   (* x_interface_info = "xilinx.com:signal:reset:1.0 S00_AXI_RST RST" *) (* x_interface_mode = "slave S00_AXI_RST" *) (* x_interface_parameter = "XIL_INTERFACENAME S00_AXI_RST, POLARITY ACTIVE_LOW, INSERT_VIP 0" *) input s00_axi_aresetn;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S00_AXI AWADDR" *) (* x_interface_mode = "slave S00_AXI" *) (* x_interface_parameter = "XIL_INTERFACENAME S00_AXI, WIZ_DATA_WIDTH 32, WIZ_NUM_REG 4, SUPPORTS_NARROW_BURST 0, DATA_WIDTH 32, PROTOCOL AXI4LITE, FREQ_HZ 50000000, ID_WIDTH 0, ADDR_WIDTH 4, AWUSER_WIDTH 0, ARUSER_WIDTH 0, WUSER_WIDTH 0, RUSER_WIDTH 0, BUSER_WIDTH 0, READ_WRITE_MODE READ_WRITE, HAS_BURST 0, HAS_LOCK 0, HAS_PROT 1, HAS_CACHE 0, HAS_QOS 0, HAS_REGION 0, HAS_WSTRB 1, HAS_BRESP 1, HAS_RRESP 1, NUM_READ_OUTSTANDING 8, NUM_WRITE_OUTSTANDING 8, MAX_BURST_LENGTH 1, PHASE 0.0, CLK_DOMAIN design_1_processing_system7_0_0_FCLK_CLK0, NUM_READ_THREADS 1, NUM_WRITE_THREADS 1, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0, INSERT_VIP 0" *) input [3:0]s00_axi_awaddr;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S00_AXI AWADDR" *) (* x_interface_mode = "slave S00_AXI" *) (* x_interface_parameter = "XIL_INTERFACENAME S00_AXI, WIZ_DATA_WIDTH 32, WIZ_NUM_REG 4, SUPPORTS_NARROW_BURST 0, DATA_WIDTH 32, PROTOCOL AXI4LITE, FREQ_HZ 5e+07, ID_WIDTH 0, ADDR_WIDTH 4, AWUSER_WIDTH 0, ARUSER_WIDTH 0, WUSER_WIDTH 0, RUSER_WIDTH 0, BUSER_WIDTH 0, READ_WRITE_MODE READ_WRITE, HAS_BURST 0, HAS_LOCK 0, HAS_PROT 1, HAS_CACHE 0, HAS_QOS 0, HAS_REGION 0, HAS_WSTRB 1, HAS_BRESP 1, HAS_RRESP 1, NUM_READ_OUTSTANDING 8, NUM_WRITE_OUTSTANDING 8, MAX_BURST_LENGTH 1, PHASE 0.0, CLK_DOMAIN design_1_processing_system7_0_0_FCLK_CLK0, NUM_READ_THREADS 1, NUM_WRITE_THREADS 1, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0, INSERT_VIP 0" *) input [3:0]s00_axi_awaddr;
   (* x_interface_info = "xilinx.com:interface:aximm:1.0 S00_AXI AWPROT" *) input [2:0]s00_axi_awprot;
   (* x_interface_info = "xilinx.com:interface:aximm:1.0 S00_AXI AWVALID" *) input s00_axi_awvalid;
   (* x_interface_info = "xilinx.com:interface:aximm:1.0 S00_AXI AWREADY" *) output s00_axi_awready;
@@ -81,13 +81,13 @@ module design_1_ControlServos_2_0_0
   wire s00_axi_wready;
   wire [3:0]s00_axi_wstrb;
   wire s00_axi_wvalid;
+  wire servo_0;
+  wire servo_1;
 
   assign s00_axi_bresp[1] = \<const0> ;
   assign s00_axi_bresp[0] = \<const0> ;
   assign s00_axi_rresp[1] = \<const0> ;
   assign s00_axi_rresp[0] = \<const0> ;
-  assign servo_0 = \<const0> ;
-  assign servo_1 = \<const0> ;
   GND GND
        (.G(\<const0> ));
   design_1_ControlServos_2_0_0_ControlServos_2 U0
@@ -107,7 +107,9 @@ module design_1_ControlServos_2_0_0
         .s00_axi_wdata(s00_axi_wdata),
         .s00_axi_wready(s00_axi_wready),
         .s00_axi_wstrb(s00_axi_wstrb),
-        .s00_axi_wvalid(s00_axi_wvalid));
+        .s00_axi_wvalid(s00_axi_wvalid),
+        .servo_0(servo_0),
+        .servo_1(servo_1));
 endmodule
 
 (* ORIG_REF_NAME = "ControlServos_2" *) 
@@ -115,8 +117,10 @@ module design_1_ControlServos_2_0_0_ControlServos_2
    (axi_awready_reg,
     axi_arready_reg,
     axi_rvalid_reg,
-    s00_axi_rdata,
+    servo_0,
+    servo_1,
     s00_axi_bvalid,
+    s00_axi_rdata,
     s00_axi_wready,
     s00_axi_wvalid,
     s00_axi_awvalid,
@@ -125,15 +129,17 @@ module design_1_ControlServos_2_0_0_ControlServos_2
     s00_axi_rready,
     s00_axi_awaddr,
     s00_axi_aresetn,
-    s00_axi_araddr,
     s00_axi_wdata,
+    s00_axi_araddr,
     s00_axi_bready,
     s00_axi_wstrb);
   output axi_awready_reg;
   output axi_arready_reg;
   output axi_rvalid_reg;
-  output [31:0]s00_axi_rdata;
+  output servo_0;
+  output servo_1;
   output s00_axi_bvalid;
+  output [31:0]s00_axi_rdata;
   output s00_axi_wready;
   input s00_axi_wvalid;
   input s00_axi_awvalid;
@@ -142,8 +148,8 @@ module design_1_ControlServos_2_0_0_ControlServos_2
   input s00_axi_rready;
   input [1:0]s00_axi_awaddr;
   input s00_axi_aresetn;
-  input [1:0]s00_axi_araddr;
   input [31:0]s00_axi_wdata;
+  input [1:0]s00_axi_araddr;
   input s00_axi_bready;
   input [3:0]s00_axi_wstrb;
 
@@ -164,6 +170,8 @@ module design_1_ControlServos_2_0_0_ControlServos_2
   wire s00_axi_wready;
   wire [3:0]s00_axi_wstrb;
   wire s00_axi_wvalid;
+  wire servo_0;
+  wire servo_1;
 
   design_1_ControlServos_2_0_0_ControlServos_2_slave_lite_v1_0_S00_AXI ControlServos_2_slave_lite_v1_0_S00_AXI_inst
        (.axi_arready_reg_0(axi_arready_reg),
@@ -182,7 +190,9 @@ module design_1_ControlServos_2_0_0_ControlServos_2
         .s00_axi_wdata(s00_axi_wdata),
         .s00_axi_wready(s00_axi_wready),
         .s00_axi_wstrb(s00_axi_wstrb),
-        .s00_axi_wvalid(s00_axi_wvalid));
+        .s00_axi_wvalid(s00_axi_wvalid),
+        .servo_0(servo_0),
+        .servo_1(servo_1));
 endmodule
 
 (* ORIG_REF_NAME = "ControlServos_2_slave_lite_v1_0_S00_AXI" *) 
@@ -190,8 +200,10 @@ module design_1_ControlServos_2_0_0_ControlServos_2_slave_lite_v1_0_S00_AXI
    (axi_awready_reg_0,
     axi_arready_reg_0,
     axi_rvalid_reg_0,
-    s00_axi_rdata,
+    servo_0,
+    servo_1,
     s00_axi_bvalid,
+    s00_axi_rdata,
     s00_axi_wready,
     s00_axi_wvalid,
     s00_axi_awvalid,
@@ -200,15 +212,17 @@ module design_1_ControlServos_2_0_0_ControlServos_2_slave_lite_v1_0_S00_AXI
     s00_axi_rready,
     s00_axi_awaddr,
     s00_axi_aresetn,
-    s00_axi_araddr,
     s00_axi_wdata,
+    s00_axi_araddr,
     s00_axi_bready,
     s00_axi_wstrb);
   output axi_awready_reg_0;
   output axi_arready_reg_0;
   output axi_rvalid_reg_0;
-  output [31:0]s00_axi_rdata;
+  output servo_0;
+  output servo_1;
   output s00_axi_bvalid;
+  output [31:0]s00_axi_rdata;
   output s00_axi_wready;
   input s00_axi_wvalid;
   input s00_axi_awvalid;
@@ -217,8 +231,8 @@ module design_1_ControlServos_2_0_0_ControlServos_2_slave_lite_v1_0_S00_AXI
   input s00_axi_rready;
   input [1:0]s00_axi_awaddr;
   input s00_axi_aresetn;
-  input [1:0]s00_axi_araddr;
   input [31:0]s00_axi_wdata;
+  input [1:0]s00_axi_araddr;
   input s00_axi_bready;
   input [3:0]s00_axi_wstrb;
 
@@ -249,6 +263,7 @@ module design_1_ControlServos_2_0_0_ControlServos_2_slave_lite_v1_0_S00_AXI
   wire axi_wready;
   wire axi_wready_i_1_n_0;
   wire [3:3]mem_logic__1;
+  wire p_0_in;
   wire [31:7]p_1_in;
   wire s00_axi_aclk;
   wire [1:0]s00_axi_araddr;
@@ -264,6 +279,107 @@ module design_1_ControlServos_2_0_0_ControlServos_2_slave_lite_v1_0_S00_AXI
   wire s00_axi_wready;
   wire [3:0]s00_axi_wstrb;
   wire s00_axi_wvalid;
+  wire servo_0;
+  wire servo_00_carry__0_i_1_n_0;
+  wire servo_00_carry__0_i_2_n_0;
+  wire servo_00_carry__0_i_3_n_0;
+  wire servo_00_carry__0_i_4_n_0;
+  wire servo_00_carry__0_i_5_n_0;
+  wire servo_00_carry__0_i_6_n_0;
+  wire servo_00_carry__0_i_7_n_0;
+  wire servo_00_carry__0_i_8_n_0;
+  wire servo_00_carry__0_n_0;
+  wire servo_00_carry__0_n_1;
+  wire servo_00_carry__0_n_2;
+  wire servo_00_carry__0_n_3;
+  wire servo_00_carry__1_i_1_n_0;
+  wire servo_00_carry__1_i_2_n_0;
+  wire servo_00_carry__1_i_3_n_0;
+  wire servo_00_carry__1_i_4_n_0;
+  wire servo_00_carry__1_i_5_n_0;
+  wire servo_00_carry__1_i_6_n_0;
+  wire servo_00_carry__1_i_7_n_0;
+  wire servo_00_carry__1_i_8_n_0;
+  wire servo_00_carry__1_n_0;
+  wire servo_00_carry__1_n_1;
+  wire servo_00_carry__1_n_2;
+  wire servo_00_carry__1_n_3;
+  wire servo_00_carry__2_i_1_n_0;
+  wire servo_00_carry__2_i_2_n_0;
+  wire servo_00_carry__2_i_3_n_0;
+  wire servo_00_carry__2_i_4_n_0;
+  wire servo_00_carry__2_i_5_n_0;
+  wire servo_00_carry__2_i_6_n_0;
+  wire servo_00_carry__2_i_7_n_0;
+  wire servo_00_carry__2_i_8_n_0;
+  wire servo_00_carry__2_n_0;
+  wire servo_00_carry__2_n_1;
+  wire servo_00_carry__2_n_2;
+  wire servo_00_carry__2_n_3;
+  wire servo_00_carry__3_i_1_n_0;
+  wire servo_00_carry_i_1_n_0;
+  wire servo_00_carry_i_2_n_0;
+  wire servo_00_carry_i_3_n_0;
+  wire servo_00_carry_i_4_n_0;
+  wire servo_00_carry_i_5_n_0;
+  wire servo_00_carry_i_6_n_0;
+  wire servo_00_carry_i_7_n_0;
+  wire servo_00_carry_i_8_n_0;
+  wire servo_00_carry_n_0;
+  wire servo_00_carry_n_1;
+  wire servo_00_carry_n_2;
+  wire servo_00_carry_n_3;
+  wire servo_1;
+  wire servo_10_carry__0_i_1_n_0;
+  wire servo_10_carry__0_i_2_n_0;
+  wire servo_10_carry__0_i_3_n_0;
+  wire servo_10_carry__0_i_4_n_0;
+  wire servo_10_carry__0_i_5_n_0;
+  wire servo_10_carry__0_i_6_n_0;
+  wire servo_10_carry__0_i_7_n_0;
+  wire servo_10_carry__0_i_8_n_0;
+  wire servo_10_carry__0_n_0;
+  wire servo_10_carry__0_n_1;
+  wire servo_10_carry__0_n_2;
+  wire servo_10_carry__0_n_3;
+  wire servo_10_carry__1_i_1_n_0;
+  wire servo_10_carry__1_i_2_n_0;
+  wire servo_10_carry__1_i_3_n_0;
+  wire servo_10_carry__1_i_4_n_0;
+  wire servo_10_carry__1_i_5_n_0;
+  wire servo_10_carry__1_i_6_n_0;
+  wire servo_10_carry__1_i_7_n_0;
+  wire servo_10_carry__1_i_8_n_0;
+  wire servo_10_carry__1_n_0;
+  wire servo_10_carry__1_n_1;
+  wire servo_10_carry__1_n_2;
+  wire servo_10_carry__1_n_3;
+  wire servo_10_carry__2_i_1_n_0;
+  wire servo_10_carry__2_i_2_n_0;
+  wire servo_10_carry__2_i_3_n_0;
+  wire servo_10_carry__2_i_4_n_0;
+  wire servo_10_carry__2_i_5_n_0;
+  wire servo_10_carry__2_i_6_n_0;
+  wire servo_10_carry__2_i_7_n_0;
+  wire servo_10_carry__2_i_8_n_0;
+  wire servo_10_carry__2_n_0;
+  wire servo_10_carry__2_n_1;
+  wire servo_10_carry__2_n_2;
+  wire servo_10_carry__2_n_3;
+  wire servo_10_carry__3_i_1_n_0;
+  wire servo_10_carry__3_n_3;
+  wire servo_10_carry_i_1_n_0;
+  wire servo_10_carry_i_2_n_0;
+  wire servo_10_carry_i_3_n_0;
+  wire servo_10_carry_i_4_n_0;
+  wire servo_10_carry_i_5_n_0;
+  wire servo_10_carry_i_6_n_0;
+  wire servo_10_carry_i_7_n_0;
+  wire servo_10_carry_i_8_n_0;
+  wire servo_10_carry_n_0;
+  wire servo_10_carry_n_1;
+  wire servo_10_carry_n_2;
+  wire servo_10_carry_n_3;
   wire [31:0]slv_reg0;
   wire [31:0]slv_reg1;
   wire \slv_reg1[15]_i_1_n_0 ;
@@ -281,6 +397,18 @@ module design_1_ControlServos_2_0_0_ControlServos_2_slave_lite_v1_0_S00_AXI
   wire \slv_reg3[31]_i_1_n_0 ;
   wire \slv_reg3[7]_i_1_n_0 ;
   wire [1:0]state_read;
+  wire [3:0]NLW_servo_00_carry_O_UNCONNECTED;
+  wire [3:0]NLW_servo_00_carry__0_O_UNCONNECTED;
+  wire [3:0]NLW_servo_00_carry__1_O_UNCONNECTED;
+  wire [3:0]NLW_servo_00_carry__2_O_UNCONNECTED;
+  wire [3:1]NLW_servo_00_carry__3_CO_UNCONNECTED;
+  wire [3:0]NLW_servo_00_carry__3_O_UNCONNECTED;
+  wire [3:0]NLW_servo_10_carry_O_UNCONNECTED;
+  wire [3:0]NLW_servo_10_carry__0_O_UNCONNECTED;
+  wire [3:0]NLW_servo_10_carry__1_O_UNCONNECTED;
+  wire [3:0]NLW_servo_10_carry__2_O_UNCONNECTED;
+  wire [3:1]NLW_servo_10_carry__3_CO_UNCONNECTED;
+  wire [3:0]NLW_servo_10_carry__3_O_UNCONNECTED;
 
   LUT6 #(
     .INIT(64'hFFFFBFAAFFFFBF00)) 
@@ -853,6 +981,492 @@ module design_1_ControlServos_2_0_0_ControlServos_2_slave_lite_v1_0_S00_AXI
         .I4(axi_araddr[3]),
         .I5(slv_reg2[9]),
         .O(s00_axi_rdata[9]));
+  (* COMPARATOR_THRESHOLD = "11" *) 
+  CARRY4 servo_00_carry
+       (.CI(1'b0),
+        .CO({servo_00_carry_n_0,servo_00_carry_n_1,servo_00_carry_n_2,servo_00_carry_n_3}),
+        .CYINIT(1'b0),
+        .DI({servo_00_carry_i_1_n_0,servo_00_carry_i_2_n_0,servo_00_carry_i_3_n_0,servo_00_carry_i_4_n_0}),
+        .O(NLW_servo_00_carry_O_UNCONNECTED[3:0]),
+        .S({servo_00_carry_i_5_n_0,servo_00_carry_i_6_n_0,servo_00_carry_i_7_n_0,servo_00_carry_i_8_n_0}));
+  (* COMPARATOR_THRESHOLD = "11" *) 
+  CARRY4 servo_00_carry__0
+       (.CI(servo_00_carry_n_0),
+        .CO({servo_00_carry__0_n_0,servo_00_carry__0_n_1,servo_00_carry__0_n_2,servo_00_carry__0_n_3}),
+        .CYINIT(1'b0),
+        .DI({servo_00_carry__0_i_1_n_0,servo_00_carry__0_i_2_n_0,servo_00_carry__0_i_3_n_0,servo_00_carry__0_i_4_n_0}),
+        .O(NLW_servo_00_carry__0_O_UNCONNECTED[3:0]),
+        .S({servo_00_carry__0_i_5_n_0,servo_00_carry__0_i_6_n_0,servo_00_carry__0_i_7_n_0,servo_00_carry__0_i_8_n_0}));
+  LUT2 #(
+    .INIT(4'hE)) 
+    servo_00_carry__0_i_1
+       (.I0(slv_reg0[14]),
+        .I1(slv_reg0[15]),
+        .O(servo_00_carry__0_i_1_n_0));
+  LUT2 #(
+    .INIT(4'hE)) 
+    servo_00_carry__0_i_2
+       (.I0(slv_reg0[12]),
+        .I1(slv_reg0[13]),
+        .O(servo_00_carry__0_i_2_n_0));
+  LUT2 #(
+    .INIT(4'hE)) 
+    servo_00_carry__0_i_3
+       (.I0(slv_reg0[10]),
+        .I1(slv_reg0[11]),
+        .O(servo_00_carry__0_i_3_n_0));
+  LUT2 #(
+    .INIT(4'hE)) 
+    servo_00_carry__0_i_4
+       (.I0(slv_reg0[8]),
+        .I1(slv_reg0[9]),
+        .O(servo_00_carry__0_i_4_n_0));
+  LUT2 #(
+    .INIT(4'h1)) 
+    servo_00_carry__0_i_5
+       (.I0(slv_reg0[14]),
+        .I1(slv_reg0[15]),
+        .O(servo_00_carry__0_i_5_n_0));
+  LUT2 #(
+    .INIT(4'h1)) 
+    servo_00_carry__0_i_6
+       (.I0(slv_reg0[12]),
+        .I1(slv_reg0[13]),
+        .O(servo_00_carry__0_i_6_n_0));
+  LUT2 #(
+    .INIT(4'h1)) 
+    servo_00_carry__0_i_7
+       (.I0(slv_reg0[10]),
+        .I1(slv_reg0[11]),
+        .O(servo_00_carry__0_i_7_n_0));
+  LUT2 #(
+    .INIT(4'h1)) 
+    servo_00_carry__0_i_8
+       (.I0(slv_reg0[8]),
+        .I1(slv_reg0[9]),
+        .O(servo_00_carry__0_i_8_n_0));
+  (* COMPARATOR_THRESHOLD = "11" *) 
+  CARRY4 servo_00_carry__1
+       (.CI(servo_00_carry__0_n_0),
+        .CO({servo_00_carry__1_n_0,servo_00_carry__1_n_1,servo_00_carry__1_n_2,servo_00_carry__1_n_3}),
+        .CYINIT(1'b0),
+        .DI({servo_00_carry__1_i_1_n_0,servo_00_carry__1_i_2_n_0,servo_00_carry__1_i_3_n_0,servo_00_carry__1_i_4_n_0}),
+        .O(NLW_servo_00_carry__1_O_UNCONNECTED[3:0]),
+        .S({servo_00_carry__1_i_5_n_0,servo_00_carry__1_i_6_n_0,servo_00_carry__1_i_7_n_0,servo_00_carry__1_i_8_n_0}));
+  LUT2 #(
+    .INIT(4'hE)) 
+    servo_00_carry__1_i_1
+       (.I0(slv_reg0[22]),
+        .I1(slv_reg0[23]),
+        .O(servo_00_carry__1_i_1_n_0));
+  LUT2 #(
+    .INIT(4'hE)) 
+    servo_00_carry__1_i_2
+       (.I0(slv_reg0[20]),
+        .I1(slv_reg0[21]),
+        .O(servo_00_carry__1_i_2_n_0));
+  LUT2 #(
+    .INIT(4'hE)) 
+    servo_00_carry__1_i_3
+       (.I0(slv_reg0[18]),
+        .I1(slv_reg0[19]),
+        .O(servo_00_carry__1_i_3_n_0));
+  LUT2 #(
+    .INIT(4'hE)) 
+    servo_00_carry__1_i_4
+       (.I0(slv_reg0[16]),
+        .I1(slv_reg0[17]),
+        .O(servo_00_carry__1_i_4_n_0));
+  LUT2 #(
+    .INIT(4'h1)) 
+    servo_00_carry__1_i_5
+       (.I0(slv_reg0[22]),
+        .I1(slv_reg0[23]),
+        .O(servo_00_carry__1_i_5_n_0));
+  LUT2 #(
+    .INIT(4'h1)) 
+    servo_00_carry__1_i_6
+       (.I0(slv_reg0[20]),
+        .I1(slv_reg0[21]),
+        .O(servo_00_carry__1_i_6_n_0));
+  LUT2 #(
+    .INIT(4'h1)) 
+    servo_00_carry__1_i_7
+       (.I0(slv_reg0[18]),
+        .I1(slv_reg0[19]),
+        .O(servo_00_carry__1_i_7_n_0));
+  LUT2 #(
+    .INIT(4'h1)) 
+    servo_00_carry__1_i_8
+       (.I0(slv_reg0[16]),
+        .I1(slv_reg0[17]),
+        .O(servo_00_carry__1_i_8_n_0));
+  (* COMPARATOR_THRESHOLD = "11" *) 
+  CARRY4 servo_00_carry__2
+       (.CI(servo_00_carry__1_n_0),
+        .CO({servo_00_carry__2_n_0,servo_00_carry__2_n_1,servo_00_carry__2_n_2,servo_00_carry__2_n_3}),
+        .CYINIT(1'b0),
+        .DI({servo_00_carry__2_i_1_n_0,servo_00_carry__2_i_2_n_0,servo_00_carry__2_i_3_n_0,servo_00_carry__2_i_4_n_0}),
+        .O(NLW_servo_00_carry__2_O_UNCONNECTED[3:0]),
+        .S({servo_00_carry__2_i_5_n_0,servo_00_carry__2_i_6_n_0,servo_00_carry__2_i_7_n_0,servo_00_carry__2_i_8_n_0}));
+  LUT2 #(
+    .INIT(4'hE)) 
+    servo_00_carry__2_i_1
+       (.I0(slv_reg0[30]),
+        .I1(slv_reg0[31]),
+        .O(servo_00_carry__2_i_1_n_0));
+  LUT2 #(
+    .INIT(4'hE)) 
+    servo_00_carry__2_i_2
+       (.I0(slv_reg0[28]),
+        .I1(slv_reg0[29]),
+        .O(servo_00_carry__2_i_2_n_0));
+  LUT2 #(
+    .INIT(4'hE)) 
+    servo_00_carry__2_i_3
+       (.I0(slv_reg0[26]),
+        .I1(slv_reg0[27]),
+        .O(servo_00_carry__2_i_3_n_0));
+  LUT2 #(
+    .INIT(4'hE)) 
+    servo_00_carry__2_i_4
+       (.I0(slv_reg0[24]),
+        .I1(slv_reg0[25]),
+        .O(servo_00_carry__2_i_4_n_0));
+  LUT2 #(
+    .INIT(4'h1)) 
+    servo_00_carry__2_i_5
+       (.I0(slv_reg0[30]),
+        .I1(slv_reg0[31]),
+        .O(servo_00_carry__2_i_5_n_0));
+  LUT2 #(
+    .INIT(4'h1)) 
+    servo_00_carry__2_i_6
+       (.I0(slv_reg0[28]),
+        .I1(slv_reg0[29]),
+        .O(servo_00_carry__2_i_6_n_0));
+  LUT2 #(
+    .INIT(4'h1)) 
+    servo_00_carry__2_i_7
+       (.I0(slv_reg0[26]),
+        .I1(slv_reg0[27]),
+        .O(servo_00_carry__2_i_7_n_0));
+  LUT2 #(
+    .INIT(4'h1)) 
+    servo_00_carry__2_i_8
+       (.I0(slv_reg0[24]),
+        .I1(slv_reg0[25]),
+        .O(servo_00_carry__2_i_8_n_0));
+  (* COMPARATOR_THRESHOLD = "11" *) 
+  CARRY4 servo_00_carry__3
+       (.CI(servo_00_carry__2_n_0),
+        .CO({NLW_servo_00_carry__3_CO_UNCONNECTED[3:1],p_0_in}),
+        .CYINIT(1'b0),
+        .DI({1'b0,1'b0,1'b0,1'b0}),
+        .O(NLW_servo_00_carry__3_O_UNCONNECTED[3:0]),
+        .S({1'b0,1'b0,1'b0,servo_00_carry__3_i_1_n_0}));
+  LUT1 #(
+    .INIT(2'h1)) 
+    servo_00_carry__3_i_1
+       (.I0(slv_reg0[31]),
+        .O(servo_00_carry__3_i_1_n_0));
+  LUT2 #(
+    .INIT(4'hE)) 
+    servo_00_carry_i_1
+       (.I0(slv_reg0[6]),
+        .I1(slv_reg0[7]),
+        .O(servo_00_carry_i_1_n_0));
+  LUT2 #(
+    .INIT(4'hE)) 
+    servo_00_carry_i_2
+       (.I0(slv_reg0[4]),
+        .I1(slv_reg0[5]),
+        .O(servo_00_carry_i_2_n_0));
+  LUT2 #(
+    .INIT(4'hE)) 
+    servo_00_carry_i_3
+       (.I0(slv_reg0[2]),
+        .I1(slv_reg0[3]),
+        .O(servo_00_carry_i_3_n_0));
+  LUT2 #(
+    .INIT(4'hE)) 
+    servo_00_carry_i_4
+       (.I0(slv_reg0[0]),
+        .I1(slv_reg0[1]),
+        .O(servo_00_carry_i_4_n_0));
+  LUT2 #(
+    .INIT(4'h1)) 
+    servo_00_carry_i_5
+       (.I0(slv_reg0[6]),
+        .I1(slv_reg0[7]),
+        .O(servo_00_carry_i_5_n_0));
+  LUT2 #(
+    .INIT(4'h1)) 
+    servo_00_carry_i_6
+       (.I0(slv_reg0[4]),
+        .I1(slv_reg0[5]),
+        .O(servo_00_carry_i_6_n_0));
+  LUT2 #(
+    .INIT(4'h1)) 
+    servo_00_carry_i_7
+       (.I0(slv_reg0[2]),
+        .I1(slv_reg0[3]),
+        .O(servo_00_carry_i_7_n_0));
+  LUT2 #(
+    .INIT(4'h1)) 
+    servo_00_carry_i_8
+       (.I0(slv_reg0[0]),
+        .I1(slv_reg0[1]),
+        .O(servo_00_carry_i_8_n_0));
+  FDRE servo_0_reg
+       (.C(s00_axi_aclk),
+        .CE(1'b1),
+        .D(p_0_in),
+        .Q(servo_0),
+        .R(1'b0));
+  (* COMPARATOR_THRESHOLD = "11" *) 
+  CARRY4 servo_10_carry
+       (.CI(1'b0),
+        .CO({servo_10_carry_n_0,servo_10_carry_n_1,servo_10_carry_n_2,servo_10_carry_n_3}),
+        .CYINIT(1'b0),
+        .DI({servo_10_carry_i_1_n_0,servo_10_carry_i_2_n_0,servo_10_carry_i_3_n_0,servo_10_carry_i_4_n_0}),
+        .O(NLW_servo_10_carry_O_UNCONNECTED[3:0]),
+        .S({servo_10_carry_i_5_n_0,servo_10_carry_i_6_n_0,servo_10_carry_i_7_n_0,servo_10_carry_i_8_n_0}));
+  (* COMPARATOR_THRESHOLD = "11" *) 
+  CARRY4 servo_10_carry__0
+       (.CI(servo_10_carry_n_0),
+        .CO({servo_10_carry__0_n_0,servo_10_carry__0_n_1,servo_10_carry__0_n_2,servo_10_carry__0_n_3}),
+        .CYINIT(1'b0),
+        .DI({servo_10_carry__0_i_1_n_0,servo_10_carry__0_i_2_n_0,servo_10_carry__0_i_3_n_0,servo_10_carry__0_i_4_n_0}),
+        .O(NLW_servo_10_carry__0_O_UNCONNECTED[3:0]),
+        .S({servo_10_carry__0_i_5_n_0,servo_10_carry__0_i_6_n_0,servo_10_carry__0_i_7_n_0,servo_10_carry__0_i_8_n_0}));
+  LUT2 #(
+    .INIT(4'hE)) 
+    servo_10_carry__0_i_1
+       (.I0(slv_reg1[14]),
+        .I1(slv_reg1[15]),
+        .O(servo_10_carry__0_i_1_n_0));
+  LUT2 #(
+    .INIT(4'hE)) 
+    servo_10_carry__0_i_2
+       (.I0(slv_reg1[12]),
+        .I1(slv_reg1[13]),
+        .O(servo_10_carry__0_i_2_n_0));
+  LUT2 #(
+    .INIT(4'hE)) 
+    servo_10_carry__0_i_3
+       (.I0(slv_reg1[10]),
+        .I1(slv_reg1[11]),
+        .O(servo_10_carry__0_i_3_n_0));
+  LUT2 #(
+    .INIT(4'hE)) 
+    servo_10_carry__0_i_4
+       (.I0(slv_reg1[8]),
+        .I1(slv_reg1[9]),
+        .O(servo_10_carry__0_i_4_n_0));
+  LUT2 #(
+    .INIT(4'h1)) 
+    servo_10_carry__0_i_5
+       (.I0(slv_reg1[14]),
+        .I1(slv_reg1[15]),
+        .O(servo_10_carry__0_i_5_n_0));
+  LUT2 #(
+    .INIT(4'h1)) 
+    servo_10_carry__0_i_6
+       (.I0(slv_reg1[12]),
+        .I1(slv_reg1[13]),
+        .O(servo_10_carry__0_i_6_n_0));
+  LUT2 #(
+    .INIT(4'h1)) 
+    servo_10_carry__0_i_7
+       (.I0(slv_reg1[10]),
+        .I1(slv_reg1[11]),
+        .O(servo_10_carry__0_i_7_n_0));
+  LUT2 #(
+    .INIT(4'h1)) 
+    servo_10_carry__0_i_8
+       (.I0(slv_reg1[8]),
+        .I1(slv_reg1[9]),
+        .O(servo_10_carry__0_i_8_n_0));
+  (* COMPARATOR_THRESHOLD = "11" *) 
+  CARRY4 servo_10_carry__1
+       (.CI(servo_10_carry__0_n_0),
+        .CO({servo_10_carry__1_n_0,servo_10_carry__1_n_1,servo_10_carry__1_n_2,servo_10_carry__1_n_3}),
+        .CYINIT(1'b0),
+        .DI({servo_10_carry__1_i_1_n_0,servo_10_carry__1_i_2_n_0,servo_10_carry__1_i_3_n_0,servo_10_carry__1_i_4_n_0}),
+        .O(NLW_servo_10_carry__1_O_UNCONNECTED[3:0]),
+        .S({servo_10_carry__1_i_5_n_0,servo_10_carry__1_i_6_n_0,servo_10_carry__1_i_7_n_0,servo_10_carry__1_i_8_n_0}));
+  LUT2 #(
+    .INIT(4'hE)) 
+    servo_10_carry__1_i_1
+       (.I0(slv_reg1[22]),
+        .I1(slv_reg1[23]),
+        .O(servo_10_carry__1_i_1_n_0));
+  LUT2 #(
+    .INIT(4'hE)) 
+    servo_10_carry__1_i_2
+       (.I0(slv_reg1[20]),
+        .I1(slv_reg1[21]),
+        .O(servo_10_carry__1_i_2_n_0));
+  LUT2 #(
+    .INIT(4'hE)) 
+    servo_10_carry__1_i_3
+       (.I0(slv_reg1[18]),
+        .I1(slv_reg1[19]),
+        .O(servo_10_carry__1_i_3_n_0));
+  LUT2 #(
+    .INIT(4'hE)) 
+    servo_10_carry__1_i_4
+       (.I0(slv_reg1[16]),
+        .I1(slv_reg1[17]),
+        .O(servo_10_carry__1_i_4_n_0));
+  LUT2 #(
+    .INIT(4'h1)) 
+    servo_10_carry__1_i_5
+       (.I0(slv_reg1[22]),
+        .I1(slv_reg1[23]),
+        .O(servo_10_carry__1_i_5_n_0));
+  LUT2 #(
+    .INIT(4'h1)) 
+    servo_10_carry__1_i_6
+       (.I0(slv_reg1[20]),
+        .I1(slv_reg1[21]),
+        .O(servo_10_carry__1_i_6_n_0));
+  LUT2 #(
+    .INIT(4'h1)) 
+    servo_10_carry__1_i_7
+       (.I0(slv_reg1[18]),
+        .I1(slv_reg1[19]),
+        .O(servo_10_carry__1_i_7_n_0));
+  LUT2 #(
+    .INIT(4'h1)) 
+    servo_10_carry__1_i_8
+       (.I0(slv_reg1[16]),
+        .I1(slv_reg1[17]),
+        .O(servo_10_carry__1_i_8_n_0));
+  (* COMPARATOR_THRESHOLD = "11" *) 
+  CARRY4 servo_10_carry__2
+       (.CI(servo_10_carry__1_n_0),
+        .CO({servo_10_carry__2_n_0,servo_10_carry__2_n_1,servo_10_carry__2_n_2,servo_10_carry__2_n_3}),
+        .CYINIT(1'b0),
+        .DI({servo_10_carry__2_i_1_n_0,servo_10_carry__2_i_2_n_0,servo_10_carry__2_i_3_n_0,servo_10_carry__2_i_4_n_0}),
+        .O(NLW_servo_10_carry__2_O_UNCONNECTED[3:0]),
+        .S({servo_10_carry__2_i_5_n_0,servo_10_carry__2_i_6_n_0,servo_10_carry__2_i_7_n_0,servo_10_carry__2_i_8_n_0}));
+  LUT2 #(
+    .INIT(4'hE)) 
+    servo_10_carry__2_i_1
+       (.I0(slv_reg1[30]),
+        .I1(slv_reg1[31]),
+        .O(servo_10_carry__2_i_1_n_0));
+  LUT2 #(
+    .INIT(4'hE)) 
+    servo_10_carry__2_i_2
+       (.I0(slv_reg1[28]),
+        .I1(slv_reg1[29]),
+        .O(servo_10_carry__2_i_2_n_0));
+  LUT2 #(
+    .INIT(4'hE)) 
+    servo_10_carry__2_i_3
+       (.I0(slv_reg1[26]),
+        .I1(slv_reg1[27]),
+        .O(servo_10_carry__2_i_3_n_0));
+  LUT2 #(
+    .INIT(4'hE)) 
+    servo_10_carry__2_i_4
+       (.I0(slv_reg1[24]),
+        .I1(slv_reg1[25]),
+        .O(servo_10_carry__2_i_4_n_0));
+  LUT2 #(
+    .INIT(4'h1)) 
+    servo_10_carry__2_i_5
+       (.I0(slv_reg1[30]),
+        .I1(slv_reg1[31]),
+        .O(servo_10_carry__2_i_5_n_0));
+  LUT2 #(
+    .INIT(4'h1)) 
+    servo_10_carry__2_i_6
+       (.I0(slv_reg1[28]),
+        .I1(slv_reg1[29]),
+        .O(servo_10_carry__2_i_6_n_0));
+  LUT2 #(
+    .INIT(4'h1)) 
+    servo_10_carry__2_i_7
+       (.I0(slv_reg1[26]),
+        .I1(slv_reg1[27]),
+        .O(servo_10_carry__2_i_7_n_0));
+  LUT2 #(
+    .INIT(4'h1)) 
+    servo_10_carry__2_i_8
+       (.I0(slv_reg1[24]),
+        .I1(slv_reg1[25]),
+        .O(servo_10_carry__2_i_8_n_0));
+  (* COMPARATOR_THRESHOLD = "11" *) 
+  CARRY4 servo_10_carry__3
+       (.CI(servo_10_carry__2_n_0),
+        .CO({NLW_servo_10_carry__3_CO_UNCONNECTED[3:1],servo_10_carry__3_n_3}),
+        .CYINIT(1'b0),
+        .DI({1'b0,1'b0,1'b0,1'b0}),
+        .O(NLW_servo_10_carry__3_O_UNCONNECTED[3:0]),
+        .S({1'b0,1'b0,1'b0,servo_10_carry__3_i_1_n_0}));
+  LUT1 #(
+    .INIT(2'h1)) 
+    servo_10_carry__3_i_1
+       (.I0(slv_reg1[31]),
+        .O(servo_10_carry__3_i_1_n_0));
+  LUT2 #(
+    .INIT(4'hE)) 
+    servo_10_carry_i_1
+       (.I0(slv_reg1[6]),
+        .I1(slv_reg1[7]),
+        .O(servo_10_carry_i_1_n_0));
+  LUT2 #(
+    .INIT(4'hE)) 
+    servo_10_carry_i_2
+       (.I0(slv_reg1[4]),
+        .I1(slv_reg1[5]),
+        .O(servo_10_carry_i_2_n_0));
+  LUT2 #(
+    .INIT(4'hE)) 
+    servo_10_carry_i_3
+       (.I0(slv_reg1[2]),
+        .I1(slv_reg1[3]),
+        .O(servo_10_carry_i_3_n_0));
+  LUT2 #(
+    .INIT(4'hE)) 
+    servo_10_carry_i_4
+       (.I0(slv_reg1[0]),
+        .I1(slv_reg1[1]),
+        .O(servo_10_carry_i_4_n_0));
+  LUT2 #(
+    .INIT(4'h1)) 
+    servo_10_carry_i_5
+       (.I0(slv_reg1[6]),
+        .I1(slv_reg1[7]),
+        .O(servo_10_carry_i_5_n_0));
+  LUT2 #(
+    .INIT(4'h1)) 
+    servo_10_carry_i_6
+       (.I0(slv_reg1[4]),
+        .I1(slv_reg1[5]),
+        .O(servo_10_carry_i_6_n_0));
+  LUT2 #(
+    .INIT(4'h1)) 
+    servo_10_carry_i_7
+       (.I0(slv_reg1[2]),
+        .I1(slv_reg1[3]),
+        .O(servo_10_carry_i_7_n_0));
+  LUT2 #(
+    .INIT(4'h1)) 
+    servo_10_carry_i_8
+       (.I0(slv_reg1[0]),
+        .I1(slv_reg1[1]),
+        .O(servo_10_carry_i_8_n_0));
+  FDRE servo_1_reg
+       (.C(s00_axi_aclk),
+        .CE(1'b1),
+        .D(servo_10_carry__3_n_3),
+        .Q(servo_1),
+        .R(1'b0));
   LUT6 #(
     .INIT(64'h0002220200000000)) 
     \slv_reg0[15]_i_1 
@@ -883,6 +1497,13 @@ module design_1_ControlServos_2_0_0_ControlServos_2_slave_lite_v1_0_S00_AXI
         .I4(s00_axi_awaddr[0]),
         .I5(s00_axi_wstrb[3]),
         .O(p_1_in[31]));
+  LUT3 #(
+    .INIT(8'hB8)) 
+    \slv_reg0[31]_i_2 
+       (.I0(s00_axi_awaddr[1]),
+        .I1(s00_axi_awvalid),
+        .I2(\axi_awaddr_reg_n_0_[3] ),
+        .O(mem_logic__1));
   LUT6 #(
     .INIT(64'h0002220200000000)) 
     \slv_reg0[7]_i_1 
@@ -1579,13 +2200,6 @@ module design_1_ControlServos_2_0_0_ControlServos_2_slave_lite_v1_0_S00_AXI
         .I4(s00_axi_awaddr[0]),
         .I5(mem_logic__1),
         .O(\slv_reg3[31]_i_1_n_0 ));
-  LUT3 #(
-    .INIT(8'hB8)) 
-    \slv_reg3[31]_i_2 
-       (.I0(s00_axi_awaddr[1]),
-        .I1(s00_axi_awvalid),
-        .I2(\axi_awaddr_reg_n_0_[3] ),
-        .O(mem_logic__1));
   LUT6 #(
     .INIT(64'h8880008000000000)) 
     \slv_reg3[7]_i_1 

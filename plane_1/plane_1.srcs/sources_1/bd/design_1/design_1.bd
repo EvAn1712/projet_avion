@@ -488,9 +488,6 @@
           "PCW_SDIO_PERIPHERAL_CLKSRC": {
             "value": "IO PLL"
           },
-          "PCW_SDIO_PERIPHERAL_FREQMHZ": {
-            "value": "50"
-          },
           "PCW_SDIO_PERIPHERAL_VALID": {
             "value": "0"
           },
@@ -850,7 +847,7 @@
       },
       "ControlServos_2_0": {
         "vlnv": "user.org:user:ControlServos_2:1.0",
-        "ip_revision": "4",
+        "ip_revision": "6",
         "xci_name": "design_1_ControlServos_2_0_0",
         "xci_path": "ip/design_1_ControlServos_2_0_0/design_1_ControlServos_2_0_0.xci",
         "inst_hier_path": "ControlServos_2_0"

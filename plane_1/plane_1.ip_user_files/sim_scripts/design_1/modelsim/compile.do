@@ -57,8 +57,8 @@ vlog -work xil_defaultlib -64 -incr -mfcu  "+incdir+../../../../plane_1.gen/sour
 "../../../bd/design_1/ip/design_1_processing_system7_0_0/sim/design_1_processing_system7_0_0.v" \
 
 vcom -work xil_defaultlib -64 -93  \
-"../../../bd/design_1/ipshared/40ad/hdl/ControlServos_2_slave_lite_v1_0_S00_AXI.vhd" \
-"../../../bd/design_1/ipshared/40ad/hdl/ControlServos_2.vhd" \
+"../../../bd/design_1/ipshared/d67e/hdl/ControlServos_2_slave_lite_v1_0_S00_AXI.vhd" \
+"../../../bd/design_1/ipshared/d67e/hdl/ControlServos_2.vhd" \
 "../../../bd/design_1/ip/design_1_ControlServos_2_0_0/sim/design_1_ControlServos_2_0_0.vhd" \
 
 vlog -work xil_defaultlib -64 -incr -mfcu  "+incdir+../../../../plane_1.gen/sources_1/bd/design_1/ipshared/ec67/hdl" "+incdir+../../../../plane_1.gen/sources_1/bd/design_1/ipshared/86fe/hdl" "+incdir+../../../../plane_1.gen/sources_1/bd/design_1/ipshared/f0b6/hdl/verilog" "+incdir+../../../../plane_1.gen/sources_1/bd/design_1/ipshared/0127/hdl/verilog" "+incdir+/usr/local/Xilinx/Vivado/2024.2/data/xilinx_vip/include" \

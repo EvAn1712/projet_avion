@@ -2,8 +2,8 @@
 -- Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2024.2 (lin64) Build 5239630 Fri Nov 08 22:34:34 MST 2024
--- Date        : Fri Dec 19 17:41:01 2025
--- Host        : pcb07-061-03 running 64-bit unknown
+-- Date        : Thu Jan  8 15:42:18 2026
+-- Host        : pcb07-061-10 running 64-bit unknown
 -- Command     : write_vhdl -force -mode synth_stub
 --               /home/master26/ems26/e.chinnaya/Documents/plane_1/plane_1.gen/sources_1/bd/design_1/ip/design_1_ControlServos_2_0_0/design_1_ControlServos_2_0_0_stub.vhdl
 -- Design      : design_1_ControlServos_2_0_0

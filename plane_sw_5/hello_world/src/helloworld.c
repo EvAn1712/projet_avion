@@ -1,7 +1,7 @@
-/******************************************************************************
+/***********************************************************************
 * Copyright (C) 2023 Advanced Micro Devices, Inc. All Rights Reserved.
 * SPDX-License-Identifier: MIT
-******************************************************************************/
+***********************************************************************/
 /*
  * helloworld.c: simple test application
  *
@@ -17,13 +17,6 @@
  *   ps7_uart    115200 (configured by bootrom/bsp)
  */
 
-
-/*
-* -------------------------------------------------------------------------------
- * | Dans cette version, il manque le controle avec zqsd. Et le reste à tester  |
- * ------------------------------------------------------------------------------
-*/
-
 #include <stdint.h>
 #include <stdio.h>
 #include <xuartps_hw.h>
@@ -31,44 +24,35 @@
 #include "xil_printf.h"
 #include "xuartps.h"
 
+// Servo command memory address
 #define SERVO_0   (*(volatile uint32_t*)(XPAR_CONTROLSERVOS_2_0_BASEADDR + 0x00))
 #define SERVO_1   (*(volatile uint32_t*)(XPAR_CONTROLSERVOS_2_0_BASEADDR + 0x04))
+ 
+// UART Memory adress and offsets
+#define UART_SR 0x0000002C
+#define UART_TXFIFO_OFFSET 0x00000030
+#define UART_RXFIFO_OFFSET 0x00000030
+#define TFUL_BIT (1<<4)
 
+// MIN MAX function
 #define MIN(X, Y) (((X) < (Y)) ? (X) : (Y))
 #define MAX(X, Y) (((X) > (Y)) ? (X) : (Y))
 
-
-// ----- PARAMÈTRES SERVO -----
+// PARAMÈTRES SERVO
 #define SERVO_NEUTRE  750
-#define SERVO_MIN     500
-#define SERVO_MAX     1000
 
-// ----- GAIN DE STABILISATION -----
-#define KP            1.1f   // commencer à 2.0 puis augmenter
-#define TARGET_STEP   0.005
-XUartPs Uart_Ps;
-
-/*void printUART(char * string){
+void printUART(char * string){
+    // Variable c pointing on the UART FIFO
     volatile char* c = (char*)(XPAR_UART1_BASEADDR + UART_TXFIFO_OFFSET);
     volatile uint32_t* status_reg = (uint32_t*)(XPAR_UART1_BASEADDR + UART_SR);
 
+    // Transmit the string character by character on the UART FIFO
     while(*string != '\0'){
         while ((*status_reg) & TFUL_BIT);
         *c = *string;
         string++;
     }
-}*/
-
-char uart_read_char(){
-    uint8_t c;
-    XUartPs_Recv(&Uart_Ps, &c, 1);
-    return (char)c;
 }
-
-int uart_char_available(){
-    return (XUartPs_IsReceiveData(XPAR_UART1_BASEADDR));
-}
-
 
 int main()
 {
@@ -79,113 +63,61 @@ int main()
     ADXL362_Init();
     ADXL362_SetRange();
 
-    // Centre des servos
-    //*servo = 750;
-    //SERVO_0 = 750;
-    //SERVO_1 = 750;
+    // Init des servos
+    SERVO_0 = SERVO_NEUTRE;
+    SERVO_1 = SERVO_NEUTRE;
 
-    print("Servos centre.\n\r");
+    double x_command = SERVO_NEUTRE;
+    double y_command = SERVO_NEUTRE;
+
+    // Default, target is at the equilibrium
+    float x_target = 0; 
+    float y_target = 0;
+
+    printUART("Hello, I am a student at ISAE and future designer. But I'm blindly writing C code now.");
 
     while (1)
     {
-        // Lecture des accélérations
+        // Reading from accelerometers
         float x_deg = ADXL362_Convert(ADXL362_ReadReg(0x0F));
         float y_deg = ADXL362_Convert(ADXL362_ReadReg(0x11));
-        printf("%f,%f\t",x_deg,y_deg);
 
-        // Correction simple
-        int pwm0;
-        int pwm1;
+        // Reading keyboard input from UART FIFO
+        volatile char* c = (char*) (XPAR_UART1_BASEADDR + UART_RXFIFO_OFFSET);
+        char buff = *c;
+        
+        // Keyboards input modify the target position of the plane
+        if (buff == 'q') {
+            x_target = x_target+0.01;
+        } else if (buff == 'd') {
+            x_target = x_target-0.01;
+        } else if (buff == 's') {
+            y_target = y_target+0.01;
+        } else if (buff == 'z') {
+            y_target = y_target-0.01;
+        } 
 
-        // 0° en target pour être à l'équilibre. On modifiera ici la target pour commander avec zqsd
-        //int x_target = 0; 
-        //int y_target = 0;
-        // Pour rester dans la position 0,0, sans bouger (Mouvement possible pour revenir dans la range [-48°,48°])
-        float x_target = x_deg; 
-        float y_target = y_deg;
+        // Safety limit to keep the target position between[-60°,60°]
+        x_target = MAX(x_target,-0.06);
+        x_target = MIN(x_target,0.06);
+        y_target = MAX(y_target,-0.06);
+        y_target = MIN(y_target,0.06);
+        printf("%f,%f\t\n",x_target,y_target);       
 
-        if (uart_char_available()){
-            print('UART enter');
-            char c = uart_read_char();
-
-            if (c == 'z') x_target += TARGET_STEP;
-            if (c == 's') x_target -= TARGET_STEP;
-            if (c == 'd') y_target += TARGET_STEP;
-            if (c == 'q') y_target -= TARGET_STEP;
-
-            if (c == ' ')  {
-                x_target = 0.0f;
-                y_target = 0.0f;
-            }
+        // Compare the current position of the plane to the target position and modify the servo command if needed
+        if (x_deg < x_target-0.02) {
+            x_command = x_command+1;
+        } else if (x_deg > x_target+0.02) {
+            x_command = x_command-1;
+        } else if (y_deg < y_target-0.02) {
+            y_command = y_command-1;
+        } else if (y_deg > y_target+0.02) {
+            y_command = y_command+1;
         }
-        
-        // +- 48° c'est grosso modo le degré max qu'on avait trouvé en débattement, donc à ne pas dépasser, on pourra affiner quand ça fonctionnera
-        x_target = MAX(x_target,-0.065);
-        x_target = MIN(x_target,0.065);
-        y_target = MAX(y_target,-0.065);
-        y_target = MIN(y_target,0.065);
-        printf("%f,%f\t",x_target,y_target);
-        /***
-         * Alternative, parce que quand on récupère x_deg et y_deg, de mémoire, ils sont pas dans -90 < deg < 90 mais dans -0.9 < deg < 0.9.
-         * Ducoup les formules seraient plutôt  :  (mais faut tester)
-         * x_target = MAX(x_target,-0.48);
-         * x_target = MIN(x_target,0.48); 
-        ***/
 
-        
-        // Conversion de la target en degré en une fraction du PWM (entre 1ms et 2ms)
-        /* 
-         * PWM Henri (pas testé), subdivision de 10000 
-         * if pwm0 = 500  -> pwcn = 1ms   -> servo à -90°
-         * if pwm0 = 750  -> pwcn = 1.5ms -> servo à 0°
-         * if pwm0 = 1000 -> pwcn = 2ms   -> servo à 90°
-         * 500+500*(x+90)/180
-        */
-        printf("%f,%f\t",500+500*(x_target+0.09)/0.180,500+500*(y_target+0.090)/0.180);
-        double x_command = 250*x_target/0.090;
-        double y_command = 250*y_target/0.090;
-
-
-        // Correcteur P
-        float x_cmd = SERVO_NEUTRE - KP * x_command;
-        float y_cmd = SERVO_NEUTRE + KP * y_command;
-        /*
-         * New PWM (testé, simulation validé sur Voiture), subdivision en 1000
-         * if pwm0 = 50  -> pwcn = 1ms   -> servo à -90°
-         * if pwm0 = 75  -> pwcn = 1.5ms -> servo à 0°
-         * if pwm0 = 100 -> pwcn = 2ms   -> servo à 90°
-         * 50+50*(x+90)/180
-        */
-        /*printf("%f,%f\t",50+50*(x_target+90)/180,50+50*(y_target+90)/180);
-        float x_command = 50+50*(x_target+90)/180;
-        float y_command = 50+50*(y_target+90)/180;*/
-        /*
-         * Alternative, si on a -0.9 < deg < 0.9:
-         * 
-         * PWM Henri: 
-         * float x_current = 500+500*(x+0.9)/1.8 
-         * 
-         * New PWM : 
-         * float x_current = 50+50*(x+0.9)/1.8
-         * 
-         * idem pour y à chaque fois
-        */
-
-
-        /* A partir d'ici, partie commune */
-
-        pwm0 = (int) x_cmd;  // roll
-        pwm1 = (int) y_cmd;  // pitch
-
-        // Écriture dans les servos 
-        SERVO_0 = pwm0;
-        SERVO_1 = pwm1;
-
-        printf("PWM0 : %d PWM1 : %d\n\r",pwm0,pwm1);
-        
-        // Delay
-        //for (volatile int i = 0; i < 200000; i++);
-        msleep(1000);
+        // Writing in the servos address
+        SERVO_0 = x_command;
+        SERVO_1 = y_command;
     }
 
     cleanup_platform();
